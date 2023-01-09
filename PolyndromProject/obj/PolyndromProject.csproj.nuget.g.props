@@ -5,12 +5,12 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\horau\.nuget\packages\;G:\Visual Studio 2022\SDK\NuGetPackages</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\SPlaysYT\.nuget\packages\;D:\Visual Studio 2022\SDK &amp; ECT\NuGetPackages</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.3.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\horau\.nuget\packages\" />
-    <SourceRoot Include="G:\Visual Studio 2022\SDK\NuGetPackages\" />
+    <SourceRoot Include="C:\Users\SPlaysYT\.nuget\packages\" />
+    <SourceRoot Include="D:\Visual Studio 2022\SDK &amp; ECT\NuGetPackages\" />
   </ItemGroup>
 </Project>

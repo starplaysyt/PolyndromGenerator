@@ -78,11 +78,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.thirdOptionPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pmathBField = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pmathLField = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.pmathCField = new System.Windows.Forms.NumericUpDown();
             this.label23 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.pmathAField = new System.Windows.Forms.NumericUpDown();
             this.label24 = new System.Windows.Forms.Label();
             this.pmathRandomGenerationWayRB = new System.Windows.Forms.RadioButton();
             this.pmathOverrideWayRB = new System.Windows.Forms.RadioButton();
@@ -104,8 +108,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.aMathValue)).BeginInit();
             this.thirdOptionPanel.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmathBField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmathLField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmathCField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmathAField)).BeginInit();
             this.SuspendLayout();
             // 
             // generationSettingsPanel
@@ -681,17 +687,78 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.pmathBField);
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.pmathLField);
+            this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label25);
-            this.panel3.Controls.Add(this.numericUpDown2);
+            this.panel3.Controls.Add(this.pmathCField);
             this.panel3.Controls.Add(this.label23);
             this.panel3.Controls.Add(this.label32);
-            this.panel3.Controls.Add(this.numericUpDown4);
+            this.panel3.Controls.Add(this.pmathAField);
             this.panel3.Controls.Add(this.label24);
             this.panel3.Enabled = false;
             this.panel3.Location = new System.Drawing.Point(7, 105);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(165, 336);
             this.panel3.TabIndex = 22;
+            // 
+            // pmathBField
+            // 
+            this.pmathBField.Location = new System.Drawing.Point(112, 55);
+            this.pmathBField.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.pmathBField.Name = "pmathBField";
+            this.pmathBField.Size = new System.Drawing.Size(38, 23);
+            this.pmathBField.TabIndex = 29;
+            this.pmathBField.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(87, 57);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(25, 15);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "b =";
+            // 
+            // pmathLField
+            // 
+            this.pmathLField.Location = new System.Drawing.Point(112, 19);
+            this.pmathLField.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.pmathLField.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.pmathLField.Name = "pmathLField";
+            this.pmathLField.Size = new System.Drawing.Size(38, 23);
+            this.pmathLField.TabIndex = 27;
+            this.pmathLField.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(87, 21);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(24, 15);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "l = ";
             // 
             // label25
             // 
@@ -704,18 +771,18 @@
     "рома\r\n\r\nСпособ требует функций\r\nцелочисленного деления,\r\nнахождения остатка от\r\n" +
     "деления и другого.\r\n";
             // 
-            // numericUpDown2
+            // pmathCField
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(31, 52);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.pmathCField.Location = new System.Drawing.Point(31, 52);
+            this.pmathCField.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(38, 23);
-            this.numericUpDown2.TabIndex = 25;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.pmathCField.Name = "pmathCField";
+            this.pmathCField.Size = new System.Drawing.Size(38, 23);
+            this.pmathCField.TabIndex = 25;
+            this.pmathCField.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -739,18 +806,18 @@
             this.label32.TabIndex = 0;
             this.label32.Text = "Override";
             // 
-            // numericUpDown4
+            // pmathAField
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(31, 23);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.pmathAField.Location = new System.Drawing.Point(31, 23);
+            this.pmathAField.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(38, 23);
-            this.numericUpDown4.TabIndex = 23;
-            this.numericUpDown4.Value = new decimal(new int[] {
+            this.pmathAField.Name = "pmathAField";
+            this.pmathAField.Size = new System.Drawing.Size(38, 23);
+            this.pmathAField.TabIndex = 23;
+            this.pmathAField.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -787,6 +854,7 @@
             this.pmathOverrideWayRB.TabStop = true;
             this.pmathOverrideWayRB.Text = "Use override way";
             this.pmathOverrideWayRB.UseVisualStyleBackColor = true;
+            this.pmathOverrideWayRB.CheckedChanged += new System.EventHandler(this.pmathOverrideWayRB_CheckedChanged);
             // 
             // label22
             // 
@@ -857,8 +925,10 @@
             this.thirdOptionPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmathBField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmathLField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmathCField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmathAField)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -917,13 +987,17 @@
         private Label label13;
         private Panel panel3;
         private Label label25;
-        private NumericUpDown numericUpDown2;
+        private NumericUpDown pmathCField;
         private Label label23;
         private Label label32;
-        private NumericUpDown numericUpDown4;
+        private NumericUpDown pmathAField;
         private Label label24;
         private RadioButton pmathRandomGenerationWayRB;
         private RadioButton pmathOverrideWayRB;
         private Label label22;
+        private NumericUpDown pmathBField;
+        private Label label16;
+        private NumericUpDown pmathLField;
+        private Label label12;
     }
 }

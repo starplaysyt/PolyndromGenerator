@@ -206,7 +206,22 @@ namespace PolyndromProject
             }
             if (useThirdWayRB.Checked)
             {
-
+                if (pmathOverrideWayRB.Checked)
+                {
+                    int result = Convert.ToInt32(pmathAField.Value) * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value)-1);
+                    for (int i = 0; i < Convert.ToInt32(pmathLField.Value); i++)
+                    {
+                        int pow = Convert.ToInt32(pmathLField.Value) - i - 1;
+                        int qE = result / (int)Math.Pow(10, pow + 1);
+                        result += Convert.ToInt32((qE + Convert.ToInt32(pmathCField.Value)) % 10 * Math.Pow(10, pow));
+                        MessageBox.Show("i = " + i.ToString() + " res = " + result.ToString() +  " qe = " + qE.ToString());
+                    }
+                    MessageBox.Show(result.ToString());
+                }
+                else
+                {
+                    
+                }
             }
         }
 
@@ -296,6 +311,11 @@ namespace PolyndromProject
                 writer.WriteLine(outstr);
             }
             writer.Close();
+        }
+
+        private void pmathOverrideWayRB_CheckedChanged(object sender, EventArgs e)
+        {
+            panel3.Enabled = pmathOverrideWayRB.Checked;
         }
     }
 }

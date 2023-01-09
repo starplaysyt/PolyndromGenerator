@@ -8,23 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\horau\\.nuget\\packages\\": {},
-    "G:\\Visual Studio 2022\\SDK\\NuGetPackages": {}
+    "C:\\Users\\SPlaysYT\\.nuget\\packages\\": {},
+    "D:\\Visual Studio 2022\\SDK & ECT\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\horau\\source\\repos\\PolyndromProject\\PolyndromProject\\PolyndromProject.csproj",
+      "projectUniqueName": "C:\\Users\\SPlaysYT\\Source\\Repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj",
       "projectName": "PolyndromProject",
-      "projectPath": "C:\\Users\\horau\\source\\repos\\PolyndromProject\\PolyndromProject\\PolyndromProject.csproj",
-      "packagesPath": "C:\\Users\\horau\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\horau\\source\\repos\\PolyndromProject\\PolyndromProject\\obj\\",
+      "projectPath": "C:\\Users\\SPlaysYT\\Source\\Repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj",
+      "packagesPath": "C:\\Users\\SPlaysYT\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SPlaysYT\\Source\\Repos\\PolyndromGenerator\\PolyndromProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "G:\\Visual Studio 2022\\SDK\\NuGetPackages"
+        "D:\\Visual Studio 2022\\SDK & ECT\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\horau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SPlaysYT\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -69,7 +69,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
