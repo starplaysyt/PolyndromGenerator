@@ -208,19 +208,85 @@ namespace PolyndromProject
             {
                 if (pmathOverrideWayRB.Checked)
                 {
-                    int result = Convert.ToInt32(pmathAField.Value) * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value)-1);
+                    int result = (Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value)-1);
+                    MessageBox.Show(result.ToString());
+                    for (int i = 1; i < Convert.ToInt32(pmathLField.Value); i++)
+                    {
+                        int pow = Convert.ToInt32(pmathLField.Value) - i -1;
+                        int qE = result / (int)Math.Pow(10, pow + 1);
+                        result += (qE + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, pow);
+                        MessageBox.Show("i = " + i.ToString() + " res = " + result.ToString() +  " qe = " + qE.ToString());
+                    }
+                    MessageBox.Show("Result =" + result);
+                    if (Convert.ToInt32(pmathBField.Value) == 0)
+                    {
+                        result *= (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value));
+                        MessageBox.Show("ResultPS2 =" + result.ToString());
+                        result += (Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value))%10;
+                        for (int i = 0; i < Convert.ToInt32(pmathLField.Value)-1; i++)
+                        {
+                            int pow = i + 1;
+                            int qE = result / (int)Math.Pow(10, i) % 10;
+                            result += (qE + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, pow);
+                        }
+                        
+                    }
+                    else
+                    {
+                        result *= (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value)+1);
+                        result += Convert.ToInt32(pmathCField.Value) * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value));
+                        result += (Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value))%10;
+                        for (int i = 0; i < Convert.ToInt32(pmathLField.Value) - 1; i++)
+                        {
+                            int pow = i + 1;
+                            int qE = result / (int)Math.Pow(10, i) % 10;
+                            result += (qE + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, pow);
+                        }
+                    }
+                    outputListBox.Items.Add(result);
+                }
+                else
+                {
+                    Random rnd = new();
+                    pmathAField.Value = rnd.Next(1, 9);
+                    pmathCField.Value = rnd.Next(1, 9);
+                    pmathLField.Value = rnd.Next(1, 5);
+                    pmathBField.Value = rnd.Next(0, 1);
+
+                    int result = Convert.ToInt32(pmathAField.Value) * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value) - 1);
                     for (int i = 0; i < Convert.ToInt32(pmathLField.Value); i++)
                     {
                         int pow = Convert.ToInt32(pmathLField.Value) - i - 1;
                         int qE = result / (int)Math.Pow(10, pow + 1);
-                        result += Convert.ToInt32((qE + Convert.ToInt32(pmathCField.Value)) % 10 * Math.Pow(10, pow));
-                        MessageBox.Show("i = " + i.ToString() + " res = " + result.ToString() +  " qe = " + qE.ToString());
+                        result += ((qE + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, pow));
+                        //MessageBox.Show("i = " + i.ToString() + " res = " + result.ToString() + " qe = " + qE.ToString());
                     }
-                    MessageBox.Show(result.ToString());
-                }
-                else
-                {
-                    
+                    //MessageBox.Show("Result =" + result);
+                    if (Convert.ToInt32(pmathBField.Value) == 0)
+                    {
+                        result *= (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value));
+                        result += Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value);
+                        for (int i = 0; i < Convert.ToInt32(pmathLField.Value) - 1; i++)
+                        {
+                            int pow = i + 1;
+                            int qE = result / (int)Math.Pow(10, i) % 10;
+                            result += (qE + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, pow);
+                        }
+
+                    }
+                    else
+                    {
+                        result *= (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value) + 1);
+                        result += Convert.ToInt32(pmathCField.Value) * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value));
+                        result += Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value);
+                        for (int i = 0; i < Convert.ToInt32(pmathLField.Value) - 1; i++)
+                        {
+                            int pow = i + 1;
+                            int qE = result / (int)Math.Pow(10, i) % 10;
+                            result += (qE + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, pow);
+                        }
+                    }
+                    outputListBox.Items.Add(result);
                 }
             }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SPlaysYT\\Source\\Repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj": {}
+    "C:\\Users\\SPlaysYT\\source\\repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SPlaysYT\\Source\\Repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj": {
+    "C:\\Users\\SPlaysYT\\source\\repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SPlaysYT\\Source\\Repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj",
+        "projectUniqueName": "C:\\Users\\SPlaysYT\\source\\repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj",
         "projectName": "PolyndromProject",
-        "projectPath": "C:\\Users\\SPlaysYT\\Source\\Repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj",
+        "projectPath": "C:\\Users\\SPlaysYT\\source\\repos\\PolyndromGenerator\\PolyndromProject\\PolyndromProject.csproj",
         "packagesPath": "C:\\Users\\SPlaysYT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SPlaysYT\\Source\\Repos\\PolyndromGenerator\\PolyndromProject\\obj\\",
+        "outputPath": "C:\\Users\\SPlaysYT\\source\\repos\\PolyndromGenerator\\PolyndromProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual Studio 2022\\SDK & ECT\\NuGetPackages"
