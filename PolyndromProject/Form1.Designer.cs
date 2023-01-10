@@ -30,9 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.generationSettingsPanel = new System.Windows.Forms.Panel();
+            this.useRandomGenRB = new System.Windows.Forms.RadioButton();
+            this.useOverrideGenRB = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.useThirdWayRB = new System.Windows.Forms.RadioButton();
-            this.useSecondWayRB = new System.Windows.Forms.RadioButton();
             this.useFirstWayRB = new System.Windows.Forms.RadioButton();
+            this.useSecondWayRB = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.outputListBox = new System.Windows.Forms.ListBox();
             this.outputPanel = new System.Windows.Forms.Panel();
@@ -50,8 +53,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.programValueTB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.programRandomWayRB = new System.Windows.Forms.RadioButton();
-            this.programOverrideWayRB = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.secondOptionPanel = new System.Windows.Forms.Panel();
@@ -72,12 +73,10 @@
             this.aMathValue = new System.Windows.Forms.NumericUpDown();
             this.labelA = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.mathRandomWayRB = new System.Windows.Forms.RadioButton();
-            this.mathOverrideWayRB = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.thirdOptionPanel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pmathOverridePanel = new System.Windows.Forms.Panel();
             this.pmathBField = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
             this.pmathLField = new System.Windows.Forms.NumericUpDown();
@@ -88,12 +87,11 @@
             this.label32 = new System.Windows.Forms.Label();
             this.pmathAField = new System.Windows.Forms.NumericUpDown();
             this.label24 = new System.Windows.Forms.Label();
-            this.pmathRandomGenerationWayRB = new System.Windows.Forms.RadioButton();
-            this.pmathOverrideWayRB = new System.Windows.Forms.RadioButton();
             this.label22 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.generateButton = new System.Windows.Forms.Button();
             this.generationSettingsPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.outputPanel.SuspendLayout();
             this.firstOptionPanel.SuspendLayout();
             this.programOverridePanel.SuspendLayout();
@@ -107,7 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mathAmountVarsN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aMathValue)).BeginInit();
             this.thirdOptionPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pmathOverridePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmathBField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pmathLField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pmathCField)).BeginInit();
@@ -118,46 +116,84 @@
             // 
             this.generationSettingsPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.generationSettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.generationSettingsPanel.Controls.Add(this.useThirdWayRB);
-            this.generationSettingsPanel.Controls.Add(this.useSecondWayRB);
-            this.generationSettingsPanel.Controls.Add(this.useFirstWayRB);
+            this.generationSettingsPanel.Controls.Add(this.useRandomGenRB);
+            this.generationSettingsPanel.Controls.Add(this.useOverrideGenRB);
+            this.generationSettingsPanel.Controls.Add(this.panel1);
             this.generationSettingsPanel.Controls.Add(this.label5);
             this.generationSettingsPanel.Location = new System.Drawing.Point(845, 12);
             this.generationSettingsPanel.Name = "generationSettingsPanel";
             this.generationSettingsPanel.Size = new System.Drawing.Size(151, 289);
             this.generationSettingsPanel.TabIndex = 0;
+            this.generationSettingsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.generationSettingsPanel_Paint);
+            // 
+            // useRandomGenRB
+            // 
+            this.useRandomGenRB.AutoSize = true;
+            this.useRandomGenRB.Location = new System.Drawing.Point(15, 131);
+            this.useRandomGenRB.Name = "useRandomGenRB";
+            this.useRandomGenRB.Size = new System.Drawing.Size(112, 19);
+            this.useRandomGenRB.TabIndex = 15;
+            this.useRandomGenRB.Text = "Use random gen";
+            this.useRandomGenRB.UseVisualStyleBackColor = true;
+            this.useRandomGenRB.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // useOverrideGenRB
+            // 
+            this.useOverrideGenRB.AutoSize = true;
+            this.useOverrideGenRB.Checked = true;
+            this.useOverrideGenRB.Location = new System.Drawing.Point(15, 108);
+            this.useOverrideGenRB.Name = "useOverrideGenRB";
+            this.useOverrideGenRB.Size = new System.Drawing.Size(113, 19);
+            this.useOverrideGenRB.TabIndex = 14;
+            this.useOverrideGenRB.TabStop = true;
+            this.useOverrideGenRB.Text = "Use override gen";
+            this.useOverrideGenRB.UseVisualStyleBackColor = true;
+            this.useOverrideGenRB.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.useThirdWayRB);
+            this.panel1.Controls.Add(this.useFirstWayRB);
+            this.panel1.Controls.Add(this.useSecondWayRB);
+            this.panel1.Location = new System.Drawing.Point(9, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(141, 76);
+            this.panel1.TabIndex = 13;
             // 
             // useThirdWayRB
             // 
             this.useThirdWayRB.AutoSize = true;
-            this.useThirdWayRB.Location = new System.Drawing.Point(5, 55);
+            this.useThirdWayRB.Location = new System.Drawing.Point(6, 44);
             this.useThirdWayRB.Name = "useThirdWayRB";
             this.useThirdWayRB.Size = new System.Drawing.Size(114, 19);
             this.useThirdWayRB.TabIndex = 12;
             this.useThirdWayRB.Text = "Use Third Option";
             this.useThirdWayRB.UseVisualStyleBackColor = true;
-            // 
-            // useSecondWayRB
-            // 
-            this.useSecondWayRB.AutoSize = true;
-            this.useSecondWayRB.Location = new System.Drawing.Point(5, 36);
-            this.useSecondWayRB.Name = "useSecondWayRB";
-            this.useSecondWayRB.Size = new System.Drawing.Size(126, 19);
-            this.useSecondWayRB.TabIndex = 11;
-            this.useSecondWayRB.Text = "Use Second Option";
-            this.useSecondWayRB.UseVisualStyleBackColor = true;
+            this.useThirdWayRB.CheckedChanged += new System.EventHandler(this.generationTypeChanged);
             // 
             // useFirstWayRB
             // 
             this.useFirstWayRB.AutoSize = true;
             this.useFirstWayRB.Checked = true;
-            this.useFirstWayRB.Location = new System.Drawing.Point(5, 18);
+            this.useFirstWayRB.Location = new System.Drawing.Point(6, 7);
             this.useFirstWayRB.Name = "useFirstWayRB";
             this.useFirstWayRB.Size = new System.Drawing.Size(109, 19);
             this.useFirstWayRB.TabIndex = 10;
             this.useFirstWayRB.TabStop = true;
             this.useFirstWayRB.Text = "Use First Option";
             this.useFirstWayRB.UseVisualStyleBackColor = true;
+            this.useFirstWayRB.CheckedChanged += new System.EventHandler(this.generationTypeChanged);
+            // 
+            // useSecondWayRB
+            // 
+            this.useSecondWayRB.AutoSize = true;
+            this.useSecondWayRB.Location = new System.Drawing.Point(6, 25);
+            this.useSecondWayRB.Name = "useSecondWayRB";
+            this.useSecondWayRB.Size = new System.Drawing.Size(126, 19);
+            this.useSecondWayRB.TabIndex = 11;
+            this.useSecondWayRB.Text = "Use Second Option";
+            this.useSecondWayRB.UseVisualStyleBackColor = true;
+            this.useSecondWayRB.CheckedChanged += new System.EventHandler(this.generationTypeChanged);
             // 
             // label5
             // 
@@ -239,8 +275,6 @@
             this.firstOptionPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.firstOptionPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.firstOptionPanel.Controls.Add(this.programOverridePanel);
-            this.firstOptionPanel.Controls.Add(this.programRandomWayRB);
-            this.firstOptionPanel.Controls.Add(this.programOverrideWayRB);
             this.firstOptionPanel.Controls.Add(this.label6);
             this.firstOptionPanel.Controls.Add(this.label2);
             this.firstOptionPanel.Location = new System.Drawing.Point(281, 12);
@@ -259,10 +293,9 @@
             this.programOverridePanel.Controls.Add(this.label8);
             this.programOverridePanel.Controls.Add(this.programValueTB);
             this.programOverridePanel.Controls.Add(this.label7);
-            this.programOverridePanel.Enabled = false;
-            this.programOverridePanel.Location = new System.Drawing.Point(7, 104);
+            this.programOverridePanel.Location = new System.Drawing.Point(7, 47);
             this.programOverridePanel.Name = "programOverridePanel";
-            this.programOverridePanel.Size = new System.Drawing.Size(165, 336);
+            this.programOverridePanel.Size = new System.Drawing.Size(165, 393);
             this.programOverridePanel.TabIndex = 10;
             // 
             // label10
@@ -338,29 +371,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Override";
             // 
-            // programRandomWayRB
-            // 
-            this.programRandomWayRB.AutoSize = true;
-            this.programRandomWayRB.Checked = true;
-            this.programRandomWayRB.Location = new System.Drawing.Point(7, 64);
-            this.programRandomWayRB.Name = "programRandomWayRB";
-            this.programRandomWayRB.Size = new System.Drawing.Size(106, 34);
-            this.programRandomWayRB.TabIndex = 9;
-            this.programRandomWayRB.TabStop = true;
-            this.programRandomWayRB.Text = "Use random \r\ngeneration way";
-            this.programRandomWayRB.UseVisualStyleBackColor = true;
-            // 
-            // programOverrideWayRB
-            // 
-            this.programOverrideWayRB.AutoSize = true;
-            this.programOverrideWayRB.Location = new System.Drawing.Point(7, 46);
-            this.programOverrideWayRB.Name = "programOverrideWayRB";
-            this.programOverrideWayRB.Size = new System.Drawing.Size(114, 19);
-            this.programOverrideWayRB.TabIndex = 8;
-            this.programOverrideWayRB.Text = "Use override way";
-            this.programOverrideWayRB.UseVisualStyleBackColor = true;
-            this.programOverrideWayRB.CheckedChanged += new System.EventHandler(this.programOverrideWayRB_CheckedChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -385,8 +395,6 @@
             this.secondOptionPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.secondOptionPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.secondOptionPanel.Controls.Add(this.mathOverridePanel);
-            this.secondOptionPanel.Controls.Add(this.mathRandomWayRB);
-            this.secondOptionPanel.Controls.Add(this.mathOverrideWayRB);
             this.secondOptionPanel.Controls.Add(this.label11);
             this.secondOptionPanel.Controls.Add(this.label3);
             this.secondOptionPanel.Location = new System.Drawing.Point(464, 12);
@@ -415,9 +423,9 @@
             this.mathOverridePanel.Controls.Add(this.labelA);
             this.mathOverridePanel.Controls.Add(this.label15);
             this.mathOverridePanel.Enabled = false;
-            this.mathOverridePanel.Location = new System.Drawing.Point(3, 104);
+            this.mathOverridePanel.Location = new System.Drawing.Point(3, 47);
             this.mathOverridePanel.Name = "mathOverridePanel";
-            this.mathOverridePanel.Size = new System.Drawing.Size(165, 336);
+            this.mathOverridePanel.Size = new System.Drawing.Size(165, 393);
             this.mathOverridePanel.TabIndex = 11;
             this.mathOverridePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -626,30 +634,6 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Override";
             // 
-            // mathRandomWayRB
-            // 
-            this.mathRandomWayRB.AutoSize = true;
-            this.mathRandomWayRB.Checked = true;
-            this.mathRandomWayRB.Location = new System.Drawing.Point(13, 64);
-            this.mathRandomWayRB.Name = "mathRandomWayRB";
-            this.mathRandomWayRB.Size = new System.Drawing.Size(106, 34);
-            this.mathRandomWayRB.TabIndex = 11;
-            this.mathRandomWayRB.TabStop = true;
-            this.mathRandomWayRB.Text = "Use random \r\ngeneration way";
-            this.mathRandomWayRB.UseVisualStyleBackColor = true;
-            // 
-            // mathOverrideWayRB
-            // 
-            this.mathOverrideWayRB.AutoSize = true;
-            this.mathOverrideWayRB.Location = new System.Drawing.Point(13, 46);
-            this.mathOverrideWayRB.Name = "mathOverrideWayRB";
-            this.mathOverrideWayRB.Size = new System.Drawing.Size(114, 19);
-            this.mathOverrideWayRB.TabIndex = 12;
-            this.mathOverrideWayRB.TabStop = true;
-            this.mathOverrideWayRB.Text = "Use override way";
-            this.mathOverrideWayRB.UseVisualStyleBackColor = true;
-            this.mathOverrideWayRB.CheckedChanged += new System.EventHandler(this.mathOverrideWayRB_CheckedChanged);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -673,9 +657,7 @@
             // 
             this.thirdOptionPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.thirdOptionPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.thirdOptionPanel.Controls.Add(this.panel3);
-            this.thirdOptionPanel.Controls.Add(this.pmathRandomGenerationWayRB);
-            this.thirdOptionPanel.Controls.Add(this.pmathOverrideWayRB);
+            this.thirdOptionPanel.Controls.Add(this.pmathOverridePanel);
             this.thirdOptionPanel.Controls.Add(this.label22);
             this.thirdOptionPanel.Controls.Add(this.label4);
             this.thirdOptionPanel.Location = new System.Drawing.Point(647, 12);
@@ -683,25 +665,26 @@
             this.thirdOptionPanel.Size = new System.Drawing.Size(177, 443);
             this.thirdOptionPanel.TabIndex = 3;
             // 
-            // panel3
+            // pmathOverridePanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.pmathBField);
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.pmathLField);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.label25);
-            this.panel3.Controls.Add(this.pmathCField);
-            this.panel3.Controls.Add(this.label23);
-            this.panel3.Controls.Add(this.label32);
-            this.panel3.Controls.Add(this.pmathAField);
-            this.panel3.Controls.Add(this.label24);
-            this.panel3.Enabled = false;
-            this.panel3.Location = new System.Drawing.Point(7, 105);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(165, 336);
-            this.panel3.TabIndex = 22;
+            this.pmathOverridePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pmathOverridePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pmathOverridePanel.Controls.Add(this.pmathBField);
+            this.pmathOverridePanel.Controls.Add(this.label16);
+            this.pmathOverridePanel.Controls.Add(this.pmathLField);
+            this.pmathOverridePanel.Controls.Add(this.label12);
+            this.pmathOverridePanel.Controls.Add(this.label25);
+            this.pmathOverridePanel.Controls.Add(this.pmathCField);
+            this.pmathOverridePanel.Controls.Add(this.label23);
+            this.pmathOverridePanel.Controls.Add(this.label32);
+            this.pmathOverridePanel.Controls.Add(this.pmathAField);
+            this.pmathOverridePanel.Controls.Add(this.label24);
+            this.pmathOverridePanel.Enabled = false;
+            this.pmathOverridePanel.Location = new System.Drawing.Point(7, 47);
+            this.pmathOverridePanel.Name = "pmathOverridePanel";
+            this.pmathOverridePanel.Size = new System.Drawing.Size(165, 394);
+            this.pmathOverridePanel.TabIndex = 22;
+            this.pmathOverridePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // pmathBField
             // 
@@ -832,30 +815,6 @@
             this.label24.TabIndex = 22;
             this.label24.Text = "a = ";
             // 
-            // pmathRandomGenerationWayRB
-            // 
-            this.pmathRandomGenerationWayRB.AutoSize = true;
-            this.pmathRandomGenerationWayRB.Checked = true;
-            this.pmathRandomGenerationWayRB.Location = new System.Drawing.Point(12, 64);
-            this.pmathRandomGenerationWayRB.Name = "pmathRandomGenerationWayRB";
-            this.pmathRandomGenerationWayRB.Size = new System.Drawing.Size(106, 34);
-            this.pmathRandomGenerationWayRB.TabIndex = 13;
-            this.pmathRandomGenerationWayRB.TabStop = true;
-            this.pmathRandomGenerationWayRB.Text = "Use random \r\ngeneration way";
-            this.pmathRandomGenerationWayRB.UseVisualStyleBackColor = true;
-            // 
-            // pmathOverrideWayRB
-            // 
-            this.pmathOverrideWayRB.AutoSize = true;
-            this.pmathOverrideWayRB.Location = new System.Drawing.Point(12, 46);
-            this.pmathOverrideWayRB.Name = "pmathOverrideWayRB";
-            this.pmathOverrideWayRB.Size = new System.Drawing.Size(114, 19);
-            this.pmathOverrideWayRB.TabIndex = 14;
-            this.pmathOverrideWayRB.TabStop = true;
-            this.pmathOverrideWayRB.Text = "Use override way";
-            this.pmathOverrideWayRB.UseVisualStyleBackColor = true;
-            this.pmathOverrideWayRB.CheckedChanged += new System.EventHandler(this.pmathOverrideWayRB_CheckedChanged);
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -904,6 +863,8 @@
             this.Text = "Polyndrom Generator";
             this.generationSettingsPanel.ResumeLayout(false);
             this.generationSettingsPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.outputPanel.ResumeLayout(false);
             this.outputPanel.PerformLayout();
             this.firstOptionPanel.ResumeLayout(false);
@@ -923,8 +884,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.aMathValue)).EndInit();
             this.thirdOptionPanel.ResumeLayout(false);
             this.thirdOptionPanel.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pmathOverridePanel.ResumeLayout(false);
+            this.pmathOverridePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmathBField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pmathLField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pmathCField)).EndInit();
@@ -961,8 +922,6 @@
         private Label label8;
         private TextBox programValueTB;
         private Label label7;
-        private RadioButton programRandomWayRB;
-        private RadioButton programOverrideWayRB;
         private Label label6;
         private Label label10;
         private Panel mathOverridePanel;
@@ -971,8 +930,6 @@
         private NumericUpDown aMathValue;
         private Label labelA;
         private Label label15;
-        private RadioButton mathRandomWayRB;
-        private RadioButton mathOverrideWayRB;
         private Label label11;
         private NumericUpDown mathSeparatorN;
         private Label label21;
@@ -985,19 +942,20 @@
         private Label labelB;
         private Button button1;
         private Label label13;
-        private Panel panel3;
+        private Panel pmathOverridePanel;
         private Label label25;
         private NumericUpDown pmathCField;
         private Label label23;
         private Label label32;
         private NumericUpDown pmathAField;
         private Label label24;
-        private RadioButton pmathRandomGenerationWayRB;
-        private RadioButton pmathOverrideWayRB;
         private Label label22;
         private NumericUpDown pmathBField;
         private Label label16;
         private NumericUpDown pmathLField;
         private Label label12;
+        private RadioButton useRandomGenRB;
+        private RadioButton useOverrideGenRB;
+        private Panel panel1;
     }
 }

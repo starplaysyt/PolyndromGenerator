@@ -2,17 +2,20 @@ namespace PolyndromProject
 {
     public partial class Form1 : Form
     {
+        public GenerationType genType = GenerationType.ProgramWay;
+        public GenerationMode genMode = GenerationMode.DoOverrideAccess;
         public Form1()
         {
             InitializeComponent();
+            genType = GenerationType.ProgramWay;
         }
 
         private void generationButton_Click(object sender, EventArgs e)
         {
             if (doClearOutputOnNewGeneration.Checked) outputListBox.Items.Clear();
-            if (useFirstWayRB.Checked)
+            if (genType == GenerationType.ProgramWay)
             {
-                if (programOverrideWayRB.Checked)
+                if (genMode == GenerationMode.DoOverrideAccess)
                 {
                     if (programValueTB.Text.Trim()[programValueTB.Text.Length - 1] == '0')
                     {
@@ -60,9 +63,9 @@ namespace PolyndromProject
                     }
                 }
             }
-            if (useSecondWayRB.Checked)
+            if (genType == GenerationType.MathWay)
             {
-                if (mathOverrideWayRB.Checked)
+                if (genMode == GenerationMode.DoOverrideAccess)
                 {
                     long returnValue = 0;
                     if (dMathValue.Enabled)
@@ -204,9 +207,9 @@ namespace PolyndromProject
                     mathOverridePanel.Enabled = false;
                 }
             }
-            if (useThirdWayRB.Checked)
+            if (genType == GenerationType.ProgramMathWay)
             {
-                if (pmathOverrideWayRB.Checked)
+                if (genMode == GenerationMode.DoOverrideAccess)
                 {
                     int result = (Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value)-1);
                     MessageBox.Show(result.ToString());
@@ -215,13 +218,13 @@ namespace PolyndromProject
                         int pow = Convert.ToInt32(pmathLField.Value) - i -1;
                         int qE = result / (int)Math.Pow(10, pow + 1);
                         result += (qE + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, pow);
-                        MessageBox.Show("i = " + i.ToString() + " res = " + result.ToString() +  " qe = " + qE.ToString());
+                        //MessageBox.Show("i = " + i.ToString() + " res = " + result.ToString() +  " qe = " + qE.ToString());
                     }
-                    MessageBox.Show("Result =" + result);
+                    //MessageBox.Show("Result =" + result);
                     if (Convert.ToInt32(pmathBField.Value) == 0)
                     {
                         result *= (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value));
-                        MessageBox.Show("ResultPS2 =" + result.ToString());
+                        //MessageBox.Show("ResultPS2 =" + result.ToString());
                         result += (Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value))%10;
                         for (int i = 0; i < Convert.ToInt32(pmathLField.Value)-1; i++)
                         {
@@ -253,19 +256,21 @@ namespace PolyndromProject
                     pmathLField.Value = rnd.Next(1, 5);
                     pmathBField.Value = rnd.Next(0, 1);
 
-                    int result = Convert.ToInt32(pmathAField.Value) * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value) - 1);
-                    for (int i = 0; i < Convert.ToInt32(pmathLField.Value); i++)
+                    int result = (Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value) - 1);
+                    MessageBox.Show(result.ToString());
+                    for (int i = 1; i < Convert.ToInt32(pmathLField.Value); i++)
                     {
                         int pow = Convert.ToInt32(pmathLField.Value) - i - 1;
                         int qE = result / (int)Math.Pow(10, pow + 1);
-                        result += ((qE + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, pow));
-                        //MessageBox.Show("i = " + i.ToString() + " res = " + result.ToString() + " qe = " + qE.ToString());
+                        result += (qE + Convert.ToInt32(pmathCField.Value)) % 10 * (int)Math.Pow(10, pow);
+                        //MessageBox.Show("i = " + i.ToString() + " res = " + result.ToString() +  " qe = " + qE.ToString());
                     }
                     //MessageBox.Show("Result =" + result);
                     if (Convert.ToInt32(pmathBField.Value) == 0)
                     {
                         result *= (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value));
-                        result += Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value);
+                        //MessageBox.Show("ResultPS2 =" + result.ToString());
+                        result += (Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value)) % 10;
                         for (int i = 0; i < Convert.ToInt32(pmathLField.Value) - 1; i++)
                         {
                             int pow = i + 1;
@@ -278,7 +283,7 @@ namespace PolyndromProject
                     {
                         result *= (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value) + 1);
                         result += Convert.ToInt32(pmathCField.Value) * (int)Math.Pow(10, Convert.ToInt32(pmathLField.Value));
-                        result += Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value);
+                        result += (Convert.ToInt32(pmathAField.Value) + Convert.ToInt32(pmathCField.Value)) % 10;
                         for (int i = 0; i < Convert.ToInt32(pmathLField.Value) - 1; i++)
                         {
                             int pow = i + 1;
@@ -294,11 +299,6 @@ namespace PolyndromProject
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-        private void programOverrideWayRB_CheckedChanged(object sender, EventArgs e)
-        {
-            programOverridePanel.Enabled = programOverrideWayRB.Checked;
         }
 
         private void useSeparatorCB_CheckedChanged(object sender, EventArgs e)
@@ -334,11 +334,6 @@ namespace PolyndromProject
                     MessageBox.Show("some error happened. "); return;
                     break;
             }
-        }
-
-        private void mathOverrideWayRB_CheckedChanged(object sender, EventArgs e)
-        {
-            mathOverridePanel.Enabled = mathOverrideWayRB.Checked;
         }
 
         private void mathUseSeparatorCB_CheckedChanged(object sender, EventArgs e)
@@ -379,9 +374,74 @@ namespace PolyndromProject
             writer.Close();
         }
 
-        private void pmathOverrideWayRB_CheckedChanged(object sender, EventArgs e)
+        private void generationTypeChanged(object sender, EventArgs e)
         {
-            panel3.Enabled = pmathOverrideWayRB.Checked;
+            if (sender == null) throw new Exception("object was null where it cannot be null.");
+            if ((sender as RadioButton).Checked)
+            {
+                switch ((sender as RadioButton).Name)
+                {
+                    case "useFirstWayRB": genType = GenerationType.ProgramWay; UIReset(); break;
+                    case "useSecondWayRB": genType = GenerationType.MathWay; UIReset(); break;
+                    case "useThirdWayRB": genType = GenerationType.ProgramMathWay; UIReset();
+                        break;
+                    default:
+                        MessageBox.Show("Some unexpected error happened. Choose another generation option.");
+                        break;
+                }
+            }
+        }
+
+        private void UIReset()
+        {
+            programOverridePanel.Enabled = false;
+            mathOverridePanel.Enabled = false;
+            pmathOverridePanel.Enabled = false;
+            if (genMode == GenerationMode.DoOverrideAccess)
+            {
+                switch (genType)
+                {
+                    case GenerationType.ProgramWay:
+                        programOverridePanel.Enabled = true;
+                        break;
+                    case GenerationType.MathWay:
+                        mathOverridePanel.Enabled = true;
+                        break;
+                    case GenerationType.ProgramMathWay:
+                        pmathOverridePanel.Enabled = true;
+                        break;
+                }
+            }
+        }
+
+        private void generationSettingsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as RadioButton).Checked)
+            {
+                if ((sender as RadioButton).Name == "useRandomGenRB")
+                {
+                    genMode = GenerationMode.DoRandomGeneration;
+                    UIReset();
+                    MessageBox.Show("TestRG");
+                }
+                else if ((sender as RadioButton).Name == "useOverrideGenRB")
+                {
+                    genMode = GenerationMode.DoOverrideAccess;
+                    UIReset();
+                    MessageBox.Show("TestOA");
+                }
+                else MessageBox.Show("Unexpected error happened. Please, choose another option.");
+            }
         }
     }
 }
